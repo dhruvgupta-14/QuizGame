@@ -1,0 +1,455 @@
+*{
+  margin: 0;
+  padding:0;
+  overflow-x: hidden;
+  
+}
+/* heropageProperty */
+.wrapper{
+  background-color: #20948B;
+  width:100vw;
+  height:100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.quizBtn{
+  background-color: #6AB187;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.6rem;
+  width:12.5rem;
+  padding: 1.25rem ;
+  font-weight: 600;
+  color: white;
+}
+.quizBtn:hover{
+  scale: 1.1;
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+
+
+/* all Characteristic of modal box */
+
+/* also a important concept to make it center */
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0); /* Optional: for a semi-transparent background */
+  z-index: 1;
+  transform: scale(0); /* Use transform for scaling */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.modal {
+  width: 400px;
+  height: 300px; /* Use transform for scaling */
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+ /* Smooth transition for scaling */
+}
+
+
+
+.modalactive {
+  transform: scale(1); /* Use transform for scaling */
+}
+
+.modalHeading{
+  font-size: 1.5rem;
+  padding: 7px 7px;
+  margin: 8px;
+  opacity: 0.9;
+  box-sizing: border-box;
+}
+.modalDiv{
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  list-style-type: decimal;
+  margin: 12px;
+  padding: 10px;
+  opacity: 0.9;
+  line-height: 20px;
+  font-weight: 520;
+}
+.modalDivSpan{
+  color: #007bff;
+}
+.modalDiv2{
+  margin-top: 16px;
+  padding: 2px 12px;
+  position: relative;
+  left: 180px;
+
+}
+.exitBtn{
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  padding: 8px 8px ;
+  font-weight: 600;
+  color: #007bff ;
+  border-radius: 10px;
+}
+.exitBtn:hover{
+  scale: 1.05;
+  transition: all;
+  transition-duration: 0.5s;
+  
+}
+.continueBtn{
+  background-color: #6AB187 ;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  padding: 8px 8px ;
+  font-weight: 600;
+  color: white;
+  border-radius: 10px;
+}
+.continueBtn:hover{
+  scale: 1.05;
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+@media (max-width: 500px) {
+  .modal{
+    width: 350px;
+    height: auto;
+    padding: 0.8rem;
+  }
+  .modalHeading{
+  font-size: 1.2rem;
+  padding: 5px 5px;
+  margin: 6px;
+  box-sizing: border-box;
+  }
+  .modalDiv{
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    list-style-type: decimal;
+    margin: 10px;
+    padding: 8px;
+    line-height: 16px;
+    font-weight: 520;
+    font-size: 0.8rem;
+  }
+  .modalDiv2{
+    margin-top: 14px;
+    padding: 2px 9px;
+    position: relative;
+    right: 20px;
+  
+  }
+  .exitBtn{
+    font-size: 0.9rem;
+    padding: 6px 6px ;
+    font-weight: 600;
+    color: #007bff ;
+    border-radius: 8px;
+  }
+
+  .continueBtn{
+
+    font-size: 0.9rem;
+    padding: 6px 6px ;
+    font-weight: 600;
+    color: white;
+    border-radius: 8px;
+    margin-right: 5px;
+  }
+
+}
+
+ /* all characteristic of quiz box */
+
+ .quizBoxContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0); /* Optional: for a semi-transparent background */
+  z-index: 2;
+  transform: scale(0); /* Use transform for scaling */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.quizBox{
+
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+
+}
+
+.quizactive {
+  transform: scale(1); /* Use transform for scaling */
+}
+.quizBoxDiv{
+  display:flex;
+  padding: 4px 12px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.quizBoxHeading{
+  font-size: 1.5rem;
+  padding-top: 5px;
+}
+
+.quizBoxTimer{
+  display: flex;
+  padding: 3px 12px;
+  text-align: center;
+  font-size: 1.3rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color:#6AB187;
+  opacity: 0.7;
+  color:white ;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.quizBoxTimerText{
+  padding: 5px;
+}
+.quizBoxTimerNum{
+  text-align: center;
+  background-color: rgb(250, 0, 21);
+  border-radius: 7px;
+  padding: 8px;
+
+}
+
+
+
+/* very important concept */
+.quizBoxTimeLine{
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  width: 0px;
+  height: 4px;
+  background: #007bff;
+  margin-top: 8px;
+}
+
+.quizBox2{
+  margin-top: 8px;
+  display:flex;
+  flex-direction: column;
+  padding: 4px 12px;
+
+}
+
+.quizBoxQuestion{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.quizBoxOption{
+  margin-top:8px ;
+  padding:8px 12px;
+  border: 1px solid #007bff ;
+  background-color: rgba(0, 123, 255, 0.2);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.quizBoxOption:hover{
+  background-color: rgba(0, 123, 255, 0.3);
+  transition: all;
+  transition-duration: 100ms;
+  scale: 1.05;
+}
+
+.quizBox3{
+  border-top: 1px solid #31473A;
+  margin-top: 10px;
+  display:flex;
+  padding: 8px 14px;
+}
+
+.quizBoxTrack{
+  padding: 7px;
+  font-size: 1.1rem;
+}
+
+.quizBoxBtn{
+  position: relative;
+  left: 240px;
+  opacity: 0;
+}
+.quizBoxBtn{
+  background-color: #6AB187 ;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  padding: 10px 14px ;
+  font-weight: 600;
+  color: white;
+  border-radius: 10px;
+}
+.quizBoxBtn:hover{
+  scale: 1.05;
+  transition: all;
+  transition-duration: 0.5s;
+}
+@media (max-width: 500px) {
+  .quizBox{
+    width: 350px;
+    height: auto;
+    padding: 0.8rem;
+  }
+  .quizBoxDiv{
+    padding: 4px 10px;
+  }
+  .quizBoxHeading{
+    font-size: 1.3rem;
+    padding-top: 3px;
+  }
+  .quizBoxTimer{
+    padding: 3px 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+  .quizBoxTimerText{
+    padding: 3px;
+  }
+  .quizBoxTimerNum{
+
+    border-radius: 5px;
+    padding: 6px;
+    height: 1.5rem;
+  }
+  .quizBoxTimeLine{
+    margin-top: 6px;
+  }
+  .quizBox2{
+    margin-top: 6px;
+    padding: 4px 10px;
+  
+  }
+  .quizBoxQuestion{
+    font-size: 1.3rem;
+  }
+  .quizBoxOption{
+    margin-top:6px ;
+    padding:8px 10px;
+    border: 1px solid #007bff ;
+    background-color: rgba(0, 123, 255, 0.2);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .quizBox3{
+    margin-top: 8px;
+    padding: 8px 12px;
+  }
+  .quizBoxTrack{
+    padding: 5px;
+    font-size: 1rem;
+  }
+  .quizBoxBtn{
+    left: 120px;
+  }
+  .quizBoxBtn{
+    background-color: #6AB187 ;
+    font-size: 0.9rem;
+    padding: 8px 12px ;
+    border-radius: 8px;
+  }
+  
+}
+
+  /* result*/
+  .resultBoxContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0); /* Optional: for a semi-transparent background */
+    z-index: 3;
+    transform: scale(0); /* Use transform for scaling */
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+  }
+  
+  .resultbox{
+  
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+  
+  }
+  .resultactive {
+    transform: scale(1); /* Use transform for scaling */
+  }
+.resultBox1{
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin: 16px 4px;
+  font-weight: 600;
+}
+
+.resultBox2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 2px;
+}
+.resultBoxBtn1{
+  background-color: #6AB187 ;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  padding: 8px 8px ;
+  font-weight: 600;
+  color: white;
+  border-radius: 10px;
+  margin: 0 18px;
+}
+.resultBoxBtn1:hover{
+  scale: 1.05;
+  transition: all;
+  transition-duration: 0.5s;
+}
+.resultBoxBtn2{
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  padding: 8px 8px ;
+  font-weight: 600;
+  color: #007bff ;
+  border-radius: 10px;
+  margin: 0 18px;
+}
+.resultBoxBtn2:hover{
+  scale: 1.05;
+  transition: all;
+  transition-duration: 0.5s;
+  
+}
